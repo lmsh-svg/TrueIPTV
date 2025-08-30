@@ -1,5 +1,3 @@
-// Server for IPTV Stremio Addon (with debug + prefetch proxy to bypass browser CORS for pre-flight)
-// Updated: Fixed prefetch stream handling (node-fetch readable stream -> chunk accumulation, no getReader()).
 require('dotenv').config();
 
 const { getRouter } = require('stremio-addon-sdk');
@@ -324,4 +322,3 @@ app.use((error, req, res, next) => {
 });
 
 module.exports = app;
-});
