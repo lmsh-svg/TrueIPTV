@@ -1,9 +1,26 @@
 {
   "version": 2,
   "builds": [
-    { "src": "serverless.js", "use": "@vercel/node" }
+    {
+      "src": "src/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
   ],
   "routes": [
-    { "src": "/.*", "dest": "/serverless.js" }
-  ]
+    {
+      "src": "/(configure-direct|configure-xtream|api/.*|.*\\.json|logo/.*)",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
