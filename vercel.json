@@ -3,24 +3,13 @@
   "builds": [
     {
       "src": "src/index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(configure-direct|configure-xtream|api/.*|.*\\.json|logo/.*)",
-      "dest": "/server.js"
-    },
-    {
       "src": "/(.*)",
       "dest": "/src/index.html"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
